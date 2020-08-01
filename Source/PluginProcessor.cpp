@@ -9,6 +9,9 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+#define DOCTEST_CONFIG_IMPLEMENT
+#include "doctest.h"
+
 //==============================================================================
 PaletteAudioProcessor::PaletteAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -22,6 +25,42 @@ PaletteAudioProcessor::PaletteAudioProcessor()
                        )
 #endif
 {
+    juce::AudioFormatManager formatManager;
+    formatManager.registerBasicFormats();
+
+    auto file = juce::File("C:\\Users\\Bennet\\Desktop\\Palette\\resources\\snare.wav");
+
+    DBG((file.existsAsFile() ? "YES" : "NO"));
+
+    reader = formatManager.createReaderFor(file);
+
+    juce::AudioBuffer<float> fileBuffer;
+
+    if (reader != nullptr)
+    {
+        auto duration = reader->lengthInSamples / reader->sampleRate;
+
+        if (duration < 10)
+        {
+            fileBuffer.setSize(reader->numChannels, (int)reader->lengthInSamples);
+            reader->read(&fileBuffer,
+                0,
+                (int)reader->lengthInSamples,
+                0,
+                true,
+                true);
+        }
+        else
+        {
+            // handle the error that the file is 4 seconds or longer..
+            DBG("File longer than 10 seconds.");
+        }
+    }
+
+    // 100 ms grains
+    auto grains = Palette::createGrains(fileBuffer, 100, 44100);
+
+    delete reader;
 }
 
 PaletteAudioProcessor::~PaletteAudioProcessor()
@@ -185,10 +224,22 @@ void PaletteAudioProcessor::setStateInformation (const void* data, int sizeInByt
 // This creates new instances of the plugin..
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
+    doctest::Context context;
+
+    int res = context.run(); // run
+
+    if (context.shouldExit())                   // important - query flags (and --exit) rely on the user doing this
+        DBG("Should exit with code: " << res);  // propagate the result of the tests
+
     return new PaletteAudioProcessor();
 }
 
 bool PaletteAudioProcessor::keyPressed(const juce::KeyPress& key, juce::Component* originatingComponent)
 {
-	
+    return true;
+}
+
+TEST_CASE("A TEST")
+{
+    CHECK(1 == 1);
 }

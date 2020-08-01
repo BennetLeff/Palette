@@ -5,6 +5,8 @@
               cppLanguageStandard="latest">
   <MAINGROUP id="g7gZIs" name="Palette">
     <GROUP id="{C2AC6EFE-9E03-B2E2-CF4E-BFDD708A501E}" name="Source">
+      <FILE id="WxEAjG" name="Grain.cpp" compile="1" resource="0" file="Source/Grain.cpp"/>
+      <FILE id="Q4q2je" name="doctest.h" compile="0" resource="0" file="Source/doctest.h"/>
       <FILE id="aLeM5Z" name="GrainEngine.cpp" compile="1" resource="0" file="Source/GrainEngine.cpp"/>
       <FILE id="i5CdMk" name="GrainEngine.h" compile="0" resource="0" file="Source/GrainEngine.h"/>
       <FILE id="jRWTih" name="ConcatenativeSynthesizer.cpp" compile="1" resource="0"
