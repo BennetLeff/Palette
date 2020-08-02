@@ -25,42 +25,6 @@ PaletteAudioProcessor::PaletteAudioProcessor()
                        )
 #endif
 {
-    juce::AudioFormatManager formatManager;
-    formatManager.registerBasicFormats();
-
-    auto file = juce::File("C:\\Users\\Bennet\\Desktop\\Palette\\resources\\snare.wav");
-
-    DBG((file.existsAsFile() ? "YES" : "NO"));
-
-    reader = formatManager.createReaderFor(file);
-
-    juce::AudioBuffer<float> fileBuffer;
-
-    if (reader != nullptr)
-    {
-        auto duration = reader->lengthInSamples / reader->sampleRate;
-
-        if (duration < 10)
-        {
-            fileBuffer.setSize(reader->numChannels, (int)reader->lengthInSamples);
-            reader->read(&fileBuffer,
-                0,
-                (int)reader->lengthInSamples,
-                0,
-                true,
-                true);
-        }
-        else
-        {
-            // handle the error that the file is 4 seconds or longer..
-            DBG("File longer than 10 seconds.");
-        }
-    }
-
-    // 100 ms grains
-    auto grains = Palette::createGrains(fileBuffer, 100, 44100);
-
-    delete reader;
 }
 
 PaletteAudioProcessor::~PaletteAudioProcessor()
@@ -220,16 +184,28 @@ void PaletteAudioProcessor::setStateInformation (const void* data, int sizeInByt
     // whose contents will have been created by the getStateInformation() call.
 }
 
-//==============================================================================
-// This creates new instances of the plugin..
-juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
+/*
+ * Boilerplate function which contains any necessary code to bootstrap testing.
+ */
+int runTests()
 {
     doctest::Context context;
 
     int res = context.run(); // run
 
-    if (context.shouldExit())                   // important - query flags (and --exit) rely on the user doing this
-        DBG("Should exit with code: " << res);  // propagate the result of the tests
+    // important - query flags (and --exit) rely on the user doing this
+    if (context.shouldExit())
+        // propagate the result of the tests
+        return res;
+
+    return res;
+}
+
+//==============================================================================
+// This creates new instances of the plugin..
+juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
+{
+    runTests();
 
     return new PaletteAudioProcessor();
 }
@@ -237,9 +213,4 @@ juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 bool PaletteAudioProcessor::keyPressed(const juce::KeyPress& key, juce::Component* originatingComponent)
 {
     return true;
-}
-
-TEST_CASE("A TEST")
-{
-    CHECK(1 == 1);
 }

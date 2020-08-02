@@ -136,8 +136,6 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\Grain.cpp"/>
-    <ClCompile Include="..\..\Source\GrainEngine.cpp"/>
     <ClCompile Include="..\..\Source\ConcatenativeSynthesizer.cpp"/>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\PluginEditor.cpp"/>
@@ -2028,7 +2026,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\doctest.h"/>
-    <ClInclude Include="..\..\Source\GrainEngine.h"/>
     <ClInclude Include="..\..\Source\ConcatenativeSynthesizer.h"/>
     <ClInclude Include="..\..\Source\Grain.h"/>
     <ClInclude Include="..\..\Source\PluginProcessor.h"/>

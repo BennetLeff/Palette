@@ -59,8 +59,5 @@ public:
 
 private:
     //==============================================================================    
-    // Must be a raw pointer to work with the JUCE library.
-    juce::AudioFormatReader* reader;
-
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PaletteAudioProcessor)
 };

@@ -427,12 +427,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\Grain.cpp">
-      <Filter>Palette\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\GrainEngine.cpp">
-      <Filter>Palette\Source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\ConcatenativeSynthesizer.cpp">
       <Filter>Palette\Source</Filter>
     </ClCompile>
@@ -2467,9 +2461,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\doctest.h">
-      <Filter>Palette\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GrainEngine.h">
       <Filter>Palette\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ConcatenativeSynthesizer.h">
