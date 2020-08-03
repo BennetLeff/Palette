@@ -5,9 +5,9 @@
               cppLanguageStandard="latest">
   <MAINGROUP id="g7gZIs" name="Palette">
     <GROUP id="{C2AC6EFE-9E03-B2E2-CF4E-BFDD708A501E}" name="Source">
-      <FILE id="RMy0JZ" name="FeatureAnalysis.cpp" compile="1" resource="0"
+      <FILE id="IMy6ii" name="FeatureAnalysis.cpp" compile="1" resource="0"
             file="Source/FeatureAnalysis.cpp"/>
-      <FILE id="aRyAvH" name="FeatureAnalysis.h" compile="0" resource="0"
+      <FILE id="PMBUEC" name="FeatureAnalysis.h" compile="0" resource="0"
             file="Source/FeatureAnalysis.h"/>
       <FILE id="Q4q2je" name="doctest.h" compile="0" resource="0" file="Source/doctest.h"/>
       <FILE id="jRWTih" name="ConcatenativeSynthesizer.cpp" compile="1" resource="0"

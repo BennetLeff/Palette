@@ -1,14 +1,6 @@
-/*
-  ==============================================================================
-
-    Grain.h
-    Created: 28 Jul 2020 10:59:46am
-    Author:  bennet
-
-  ==============================================================================
-*/
-
 #pragma once
+
+#include <fmt/format.h>
 
 #include "doctest.h"
 #include "JuceHeader.h"
@@ -54,10 +46,6 @@ namespace Palette
 		 * zeros if there is remaining space.
 		 */
 		const auto numGrains = std::ceil(audioData.getNumSamples() / (double)samplesPerGrain);
-
-		DBG("Parsing " << audioData.getNumSamples() << " samples to partition into grains. ");
-		DBG("With a grainLength of " << grainLength << " there should be " << numGrains << " grains");
-		DBG("[ " << audioData.getNumSamples() << " / " << samplesPerGrain << " = " << numGrains << " ]");
 		
 		std::vector<Grain<SampleType>> grains;
 
@@ -189,32 +177,35 @@ TEST_CASE("Palette::createGrains(const juce::AudioBuffer<SampleType>&, const dou
 	// We must find the resources dir location which I've copied to be next the executable created by Visual Studio. 
 	// This helps to make the code work on other Windows machines but will need to be improved.
 	const auto resourcesLoc = juce::File::getSpecialLocation(juce::File::SpecialLocationType::currentExecutableFile).getParentDirectory().getFullPathName() + "\\resources\\";
-	const auto snareLoc = resourcesLoc + "snare.wav";
-	const auto springLoc = resourcesLoc + "spring.wav";
-	const auto bangLoc = resourcesLoc + "loudanime.wav";
+	const auto snareFile = "snare.wav";
+	const auto springFile = "spring.wav";
+	const auto bangFile = "loudanime.wav";
 	
 	auto grainLength = 100;
 	auto sampleRate = 44100;
 	
-	auto [snareGrains100, snareLengthInSamples] = fileToGrains(snareLoc, grainLength, sampleRate);
+	auto [snareGrains100, snareLengthInSamples] = fileToGrains(resourcesLoc + snareFile, grainLength, sampleRate);
 
-	SUBCASE("snare.wav contains 8113 samples at a sampleRate of 44100 hz with a grainLength of 100 ms")
+	SUBCASE(fmt::format("{} contains {} samples at a sampleRate of {} hz with a grainLength of {} ms",
+		snareFile, snareLengthInSamples, sampleRate, grainLength).c_str())
 	{
 		CHECK(snareGrains100.size() == numGrains(snareLengthInSamples, sampleRate, grainLength));
 	}
 
 	grainLength = 1000;
 
-	auto [snareGrains1000, _] = fileToGrains(snareLoc, grainLength, sampleRate);
-	SUBCASE("snare.wav contains 8113 samples at a sampleRate of 44100 hz with a grainLength of 1000 ms")
+	auto [snareGrains1000, _] = fileToGrains(resourcesLoc + snareFile, grainLength, sampleRate);
+	SUBCASE(fmt::format("{} contains {} samples at a sampleRate of {} hz with a grainLength of {} ms",
+		snareFile, snareLengthInSamples, sampleRate, grainLength).c_str())
 	{
 		CHECK(snareGrains1000.size() == numGrains(snareLengthInSamples, sampleRate, grainLength));
 	}
 	
 	grainLength = 0;
 
-	auto [snareGrains0, __] = fileToGrains(snareLoc, grainLength, sampleRate);
-	SUBCASE("snare.wav contains 8113 samples at a sampleRate of 44100 hz with a grainLength of 0 ms")
+	auto [snareGrains0, __] = fileToGrains(resourcesLoc + snareFile, grainLength, sampleRate);
+	SUBCASE(fmt::format("{} contains {} samples at a sampleRate of {} hz with a grainLength of {} ms",
+		snareFile, snareLengthInSamples, sampleRate, grainLength).c_str())
 	{
 		CHECK(snareGrains0.size() == 0);
 	}
@@ -224,16 +215,18 @@ TEST_CASE("Palette::createGrains(const juce::AudioBuffer<SampleType>&, const dou
 	sampleRate = 48000;
 	grainLength = 100;
 
-	auto [springGrains, springLengthInSamples] = fileToGrains(springLoc, grainLength, sampleRate);
+	auto [springGrains, springLengthInSamples] = fileToGrains(resourcesLoc + springFile, grainLength, sampleRate);
 
-	SUBCASE("spring.wav contains 176400 samples at a sampleRate of 48000 hz with a grainLength of 100 ms")
+	SUBCASE(fmt::format("{} contains {} samples at a sampleRate of {} hz with a grainLength of {} ms",
+		springFile, springLengthInSamples, sampleRate, grainLength).c_str())
 	{
 		CHECK(springGrains.size() == numGrains(springLengthInSamples, sampleRate, grainLength));
 	}
 
-	auto [bangGrains, bangLengthInSamples] = fileToGrains(bangLoc, grainLength, sampleRate);
+	auto [bangGrains, bangLengthInSamples] = fileToGrains(resourcesLoc + bangFile, grainLength, sampleRate);
 
-	SUBCASE("loudanime.wav contains 229946 samples at a sampleRate of 48000 hz with a grainLength of 100 ms")
+	SUBCASE(fmt::format("{} contains {} samples at a sampleRate of {} hz with a grainLength of {} ms",
+		bangFile, bangLengthInSamples, sampleRate, grainLength).c_str())
 	{
 		CHECK(bangGrains.size() == numGrains(bangLengthInSamples, sampleRate, grainLength));
 	}
