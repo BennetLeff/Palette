@@ -136,6 +136,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\FeatureAnalysis.cpp"/>
     <ClCompile Include="..\..\Source\ConcatenativeSynthesizer.cpp"/>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\PluginEditor.cpp"/>
@@ -2025,6 +2026,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\FeatureAnalysis.h"/>
     <ClInclude Include="..\..\Source\doctest.h"/>
     <ClInclude Include="..\..\Source\ConcatenativeSynthesizer.h"/>
     <ClInclude Include="..\..\Source\Grain.h"/>

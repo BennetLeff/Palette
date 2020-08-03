@@ -61,8 +61,6 @@ namespace Palette
 		
 		std::vector<Grain<SampleType>> grains;
 
-		const auto numChannels = audioData.getNumChannels();
-
 		/*
 		 * If there are not enough samples in the audio file to fit in one grain,
 		 * just return a single grain the AudioBuffer in audioData. This grain
@@ -73,9 +71,9 @@ namespace Palette
 		if (audioData.getNumSamples() < samplesPerGrain)
 		{
 			// Create buffer the size of audioData.getNumSamples()
-			auto buffer = juce::AudioBuffer<SampleType>(numChannels, audioData.getNumSamples());
+			auto buffer = juce::AudioBuffer<SampleType>(audioData.getNumChannels(), audioData.getNumSamples());
 
-			for (auto ch = 0; ch < numChannels; ch++)
+			for (auto ch = 0; ch < audioData.getNumChannels(); ch++)
 				buffer.copyFrom(ch, 0, audioData, ch, 0, audioData.getNumSamples());
 
 			grains.push_back(Palette::Grain<SampleType>(buffer));
@@ -92,12 +90,12 @@ namespace Palette
 		for (; partitionedSamples < (audioData.getNumSamples() - samplesPerGrain); partitionedSamples += samplesPerGrain)
 		{
 			// Create the buffer empty, with 2 channels, and samplesPerGrain space for samples.
-			auto buffer = juce::AudioBuffer<SampleType>(numChannels, samplesPerGrain);
+			auto buffer = juce::AudioBuffer<SampleType>(audioData.getNumChannels(), samplesPerGrain);
 
 			// Copy the data from the audioData AudioBuffer into a new buffer to be stored in a Grain.
 			// Copy into channel ch, starting at sample 0, from audioData, from channel ch, starting at
 			// an offset of partitionedSamples into audioData, and copy samplesPerGrain samples.
-			for (auto ch = 0; ch < numChannels; ch++)
+			for (auto ch = 0; ch < audioData.getNumChannels(); ch++)
 				buffer.copyFrom(ch, 0, audioData, ch, partitionedSamples, samplesPerGrain);
 
 			grains.push_back(Palette::Grain<SampleType>(buffer));
@@ -117,7 +115,7 @@ namespace Palette
 			jassert(remainingSamples <= samplesPerGrain);
 
 			auto buffer = juce::AudioBuffer<SampleType>(2, samplesPerGrain);
-			for (auto ch = 0; ch < numChannels; ch++)
+			for (auto ch = 0; ch < audioData.getNumChannels(); ch++)
 				buffer.copyFrom(ch, 0, audioData, ch, partitionedSamples, remainingSamples);
 
 			// Check if there's remaining space in the buffer which couldn't be filled
@@ -146,8 +144,14 @@ namespace Palette
 	}
 }
 
-TEST_CASE("Grain")
+TEST_CASE("Palette::createGrains(const juce::AudioBuffer<SampleType>&, const double, const double)")
 {
+	/*
+	 * Helper method which lets us test createGrains. This lambda calls
+	 * createsGrains using a set grainLength and sampleRate on a file
+	 * at a specified location. Once we've created the grains, we can perform
+	 * tests. 
+	 */
 	auto fileToGrains = [](juce::String location, auto grainLength, auto sampleRate) {
 		juce::AudioFormatManager formatManager;
 		formatManager.registerBasicFormats();
