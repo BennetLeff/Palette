@@ -13,6 +13,7 @@ simply open the Visual Studio Solution which is already committed to this repo.
 
 Aside from JUCE, Palette relies on some external depencies. These include the libraries [fmt](https://github.com/fmtlib/fmt) and [range-v3](https://github.com/ericniebler/range-v3). These must be installed  on the system to work. On Windows, one can simply use vcpkg. To install these libraries with vcpkg, first install vcpkg then call:
 `./vcpkg.exe --triplet x64-windows install fmt`
+
 `./vcpkg.exe --triplet x64-windows install range-v3`
 
 *Note that you must install the 64 bit versions of these libraries. vcpkg defaults to the 32 bit versions which won't be detected in our Visual Studio project.*
