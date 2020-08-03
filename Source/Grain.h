@@ -126,8 +126,6 @@ namespace Palette
 			grains.push_back(Palette::Grain<SampleType>(buffer));
 		}
 
-		DBG("Partitioned " << grains.size() << " grains");
-
 		return grains;
 	}
 }

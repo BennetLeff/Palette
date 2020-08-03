@@ -5,9 +5,17 @@
 
 namespace Palette
 {
+	/*
+	 * Computes the root mean square of range. Until the arrival 
+	 * of full support of Ranges accross the major C++ compilers,
+	 * we will be using Ranges-v3. Note that the RMS is defined
+	 * differently in the frequency domain. This is expected to operate
+	 * in the time domain. 
+	 */
 	template <typename R>
-	constexpr auto rootMeanSquare(const R& data);
+	constexpr typename R::value_type rootMeanSquare(const R& data);
 }
+
 
 TEST_CASE("Palette::rootMeanSqure(const R&&)")
 {
@@ -25,10 +33,8 @@ TEST_CASE("Palette::rootMeanSqure(const R&&)")
 		CHECK(Palette::rootMeanSquare(testData) == 1);
 	}
 
-	for (auto i = 2; i <= 10; i++) testData.push_back((float)i);
-
 	SUBCASE("RMS for range of 1-10")
 	{
-		CHECK(Palette::rootMeanSquare(testData) == 55.0f);
+		CHECK(Palette::rootMeanSquare(std::vector<float>{-2, 5, -8, 9, -4}) == doctest::Approx(6.16).epsilon(0.01));
 	}
 }
