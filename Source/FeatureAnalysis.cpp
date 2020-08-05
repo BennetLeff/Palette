@@ -4,7 +4,7 @@
 namespace Palette 
 {
 	template <typename R>
-	constexpr typename R::value_type rootMeanSquare(const R& data)
+	constexpr double rootMeanSquare(const R& data)
 	{
 		if (data.size() == 0) return 0;
 
@@ -15,7 +15,7 @@ namespace Palette
 	}
 
 	template <typename R>
-	constexpr typename R::value_type peakEnergy(const R& data)
+	constexpr double peakEnergy(const R& data)
 	{
 		// As long as there's at least 1 sample, we can find the max.
 		if (data.size() > 0)
@@ -25,7 +25,7 @@ namespace Palette
 	}
 
 	template <typename R>
-	constexpr typename R::value_type zeroCrossingRate(const R& data)
+	constexpr double zeroCrossingRate(const R& data)
 	{
 		auto totalCrossings = 0;
 
