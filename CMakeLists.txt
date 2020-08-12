@@ -14,7 +14,7 @@ set(Palette_jucer_FILE
 )
 
 
-set(JUCE_MODULES_GLOBAL_PATH "/mnt/c/Users/Bennet/Desktop/JUCE/modules/")
+set(JUCE_MODULES_GLOBAL_PATH "C:/Users/Bennet/Desktop/JUCE/modules/")
 
 
 jucer_project_begin(
