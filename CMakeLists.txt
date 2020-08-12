@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.4)
 project("Palette")
 
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/../FRUT/prefix/FRUT/cmake")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/FRUT/prefix/FRUT/cmake")
 include(Reprojucer)
 
 
@@ -14,7 +14,7 @@ set(Palette_jucer_FILE
 )
 
 
-set(JUCE_MODULES_GLOBAL_PATH "C:/Users/Bennet/Desktop/JUCE/modules/")
+set(JUCE_MODULES_GLOBAL_PATH "${CMAKE_CURRENT_LIST_DIR}/JUCE/modules/")
 
 
 jucer_project_begin(
@@ -60,8 +60,6 @@ jucer_audio_plugin_settings(
 jucer_project_files("Palette/Source"
 # Compile   Xcode     Binary    File
 #           Resource  Resource
-  x         .         .         "Source/FeatureAnalysis.cpp"
-  .         .         .         "Source/FeatureAnalysis.h"
   .         .         .         "Source/doctest.h"
   x         .         .         "Source/ConcatenativeSynthesizer.cpp"
   .         .         .         "Source/ConcatenativeSynthesizer.h"
