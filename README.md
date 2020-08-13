@@ -5,9 +5,5 @@ in a blog post. This project takes a lot of inspiration from CataRT. I was intro
 I believe there's a lot of room for improvement and a lot which could be gained by writing the software from scratch in C++.
 
 # Building
-Currently building is only tested and working on Windows. This is mostly because there's a resources folder containing sound files for testing which
-needs to be located next to the executable. It should be trivial to remedy this in the future. 
-
-To build, either generate a Visual Studio Solution from the Projucer file in the repository or 
-simply open the Visual Studio Solution which is already committed to this repo.
-
+Thanks to the FRUT project, build files can be generated with cmake.
+To generate build files, run `mkdir build && cd build` then run `cmake .. `
