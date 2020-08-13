@@ -1,0 +1,6 @@
+[submodule "dependencies/FRUT"]
+	path = dependencies/FRUT
+	url = https://github.com/McMartin/FRUT
+[submodule "dependencies/fmt"]
+	path = dependencies/fmt
+	url = https://github.com/fmtlib/fmt
