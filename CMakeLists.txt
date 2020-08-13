@@ -4,17 +4,15 @@ cmake_minimum_required(VERSION 3.4)
 
 project("Palette")
 
-
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/FRUT/prefix/FRUT/cmake")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/dependencies/FRUT/prefix/FRUT/cmake")
 include(Reprojucer)
-
 
 set(Palette_jucer_FILE
   "${CMAKE_CURRENT_LIST_DIR}/Palette.jucer"
 )
 
 
-set(JUCE_MODULES_GLOBAL_PATH "${CMAKE_CURRENT_LIST_DIR}/JUCE/modules/")
+set(JUCE_MODULES_GLOBAL_PATH "${CMAKE_CURRENT_LIST_DIR}/dependencies/JUCE/modules/")
 
 
 jucer_project_begin(
@@ -204,3 +202,7 @@ jucer_export_target_configuration(
 )
 
 jucer_project_end()
+
+set (fmt_DIR "${CMAKE_CURRENT_LIST_DIR}/dependencies/fmt/build")
+find_package(fmt REQUIRED)
+include_directories(${fmt_INCLUDE_DIRS})
