@@ -4,3 +4,6 @@
 [submodule "dependencies/fmt"]
 	path = dependencies/fmt
 	url = https://github.com/fmtlib/fmt
+[submodule "dependencies/Gist"]
+	path = dependencies/Gist
+	url = https://github.com/adamstark/gist
