@@ -13,6 +13,10 @@
 #include "doctest.h"
 #include "JuceHeader.h"
 
+#include "GrainClassifier.h"
+
+#include <unordered_map>
+
 namespace Palette 
 {
 	/*
@@ -23,10 +27,14 @@ namespace Palette
 	struct Grain
 	{
 		Grain(const juce::AudioBuffer<SampleType>& data) : sampleData(data) { }
-		/* The collection of samples which will be played back. This is assumed
+		
+		/* 
+		 * The collection of samples which will be played back. This is assumed
 		 * to be mono data. In the createGrains function, audio is summed to mono.
 		 */
 		juce::AudioBuffer<SampleType> sampleData;
+
+		std::unordered_map < Feature, double > extractedFeatures;
 	};
 
 	/*
