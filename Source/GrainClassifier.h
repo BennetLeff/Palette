@@ -15,12 +15,6 @@ namespace Palette
 	 * This is used in the Grain class so that each Grain can own data about
 	 * its features which is then used in the GrainDisplay when plotting grains.
 	 */
-	enum Feature
-	{
-		SpectralCentroid,
-		RMS,
-		PeakEnergy
-	};
 
 	template<typename SampleType>
 	class GrainClassifier

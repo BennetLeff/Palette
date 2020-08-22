@@ -13,12 +13,18 @@
 #include "doctest.h"
 #include "JuceHeader.h"
 
-#include "GrainClassifier.h"
-
 #include <unordered_map>
 
 namespace Palette 
 {
+	enum Feature
+	{
+		SpectralCentroid,
+		RMS,
+		PeakEnergy
+	};
+
+
 	/*
 	 * Grains are the fundamental building block of concatenative synthesis.
 	 * Each grain is some buffer of audio samples.
