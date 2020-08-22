@@ -23,7 +23,9 @@ namespace Palette
 	struct Grain
 	{
 		Grain(const juce::AudioBuffer<SampleType>& data) : sampleData(data) { }
-		// The collection of samples which will be played back.
+		/* The collection of samples which will be played back. This is assumed
+		 * to be mono data. In the createGrains function, audio is summed to mono.
+		 */
 		juce::AudioBuffer<SampleType> sampleData;
 	};
 
@@ -89,14 +91,17 @@ namespace Palette
 		auto partitionedSamples = 0;
 		for (; partitionedSamples < (audioData.getNumSamples() - samplesPerGrain); partitionedSamples += samplesPerGrain)
 		{
-			// Create the buffer empty, with 2 channels, and samplesPerGrain space for samples.
-			auto buffer = juce::AudioBuffer<SampleType>(audioData.getNumChannels(), samplesPerGrain);
+			// Create the buffer empty, with 1 channel, and samplesPerGrain space for samples.
+			auto buffer = juce::AudioBuffer<SampleType>(1, samplesPerGrain);
 
-			// Copy the data from the audioData AudioBuffer into a new buffer to be stored in a Grain.
-			// Copy into channel ch, starting at sample 0, from audioData, from channel ch, starting at
+			// Add the data from the audioData AudioBuffer into a new buffer to be stored in a Grain.
+			// Add into channel 0, starting at sample 0, from audioData, from channel ch, starting at
 			// an offset of partitionedSamples into audioData, and copy samplesPerGrain samples.
 			for (auto ch = 0; ch < audioData.getNumChannels(); ch++)
-				buffer.copyFrom(ch, 0, audioData, ch, partitionedSamples, samplesPerGrain);
+				buffer.addFrom(0, 0, audioData, ch, partitionedSamples, samplesPerGrain);
+
+			// Normalize the buffer since we've summed potentially multiple channels into one.
+			buffer.applyGain(1.0f / audioData.getNumChannels());
 
 			grains.push_back(Palette::Grain<SampleType>(buffer));
 		}
@@ -114,21 +119,21 @@ namespace Palette
 			// There should not be more than one grains worth of samples leftover.
 			jassert(remainingSamples <= samplesPerGrain);
 
-			auto buffer = juce::AudioBuffer<SampleType>(2, samplesPerGrain);
+			auto buffer = juce::AudioBuffer<SampleType>(1, samplesPerGrain);
 			for (auto ch = 0; ch < audioData.getNumChannels(); ch++)
-				buffer.copyFrom(ch, 0, audioData, ch, partitionedSamples, remainingSamples);
+				buffer.addFrom(0, 0, audioData, ch, partitionedSamples, remainingSamples);
 
 			// Check if there's remaining space in the buffer which couldn't be filled
 			// with samples. This space will need to be zeroed out to prevent audio artifacts.
 			if (partitionedSamples + remainingSamples < samplesPerGrain)
 			{
 				// Zero out any remaining space for samples in the buffer.
-				// 2 channels to the buffer
+				// 1 channel to the buffer
 				// samplesPerGrain sized buffer
 				// keepExistingContent = true
 				// clearExtraSpace = true
 				// avoidReallocating = false
-				buffer.setSize(2,
+				buffer.setSize(1,
 					samplesPerGrain,
 					true,
 					true,
