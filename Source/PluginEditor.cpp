@@ -9,10 +9,65 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+#include "GrainClassifier.h"
+
 //==============================================================================
 PaletteAudioProcessorEditor::PaletteAudioProcessorEditor (PaletteAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p)
 {
+	// Basic utility method to create grains from a file. 
+	// Originally defined in a test in Grains.h. Only here temporarily.
+	auto fileToGrains = [](juce::String location, auto grainLength, auto sampleRate) {
+		juce::AudioFormatManager formatManager;
+		formatManager.registerBasicFormats();
+
+		auto* reader = formatManager.createReaderFor(juce::File(location));
+
+		juce::AudioBuffer<float> fileBuffer;
+
+		if (reader != nullptr)
+		{
+			auto duration = reader->lengthInSamples / reader->sampleRate;
+
+			fileBuffer.setSize(reader->numChannels, (int)reader->lengthInSamples);
+			reader->read(&fileBuffer,
+				0,
+				(int)reader->lengthInSamples,
+				0,
+				true,
+				true);
+		}
+
+		auto grainsAndSamples = std::make_tuple(
+			Palette::createGrains(fileBuffer, grainLength, sampleRate),
+			reader->lengthInSamples);
+
+		delete reader;
+
+		return grainsAndSamples;
+	};
+
+	// Simply test data
+	const auto resourcesLoc = juce::File::getSpecialLocation(juce::File::SpecialLocationType::currentExecutableFile).getParentDirectory().getFullPathName() + "\\resources\\";
+	const auto snareLoc = resourcesLoc + "snare.wav";
+	const auto springLoc = resourcesLoc + "spring.wav";
+	const auto bangLoc = resourcesLoc + "loudanime.wav";
+
+	auto grainLength = 100;
+	auto sampleRate = 44100;
+
+	auto [snareGrains100, snareLengthInSamples] = fileToGrains(snareLoc, grainLength, sampleRate);
+
+	for (auto& grain : snareGrains100)
+	{
+		auto classifier = Palette::GrainClassifier<float>(4410, sampleRate);
+
+		grain.extractedFeatures[Palette::Feature::RMS] = classifier.rootMeanSquare(grain);
+		grain.extractedFeatures[Palette::Feature::SpectralCentroid] = classifier.spectralCentroid(grain);
+	}
+
+	grainDisplay.setGrains(snareGrains100);
+
     addAndMakeVisible(&grainDisplay);
 
     // Make sure that before the constructor has finished, you've set the

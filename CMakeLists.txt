@@ -69,6 +69,7 @@ jucer_project_files("Palette/Source"
   .         .         .         "Source/PluginProcessor.h"
   x         .         .         "Source/PluginEditor.cpp"
   .         .         .         "Source/PluginEditor.h"
+  x         .         .         "dependencies/Gist/src/Gist.cpp"
 )
 
 jucer_project_module(

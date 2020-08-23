@@ -35,21 +35,27 @@ namespace Palette
 			// We must construct a vector from the internal pointer inside the 
 			// juce::AudioBuffer inside the Grain because that's the only type
 			// Gist accepts.
-            return gist.spectralCentroid(std::vector<SampleType>(ptr, ptr + grain.sampleData.getNumSamples()));
+			gist.processAudioFrame(std::vector<SampleType>(ptr, ptr + grain.sampleData.getNumSamples()));
+
+            return gist.spectralCentroid();
         }
 
 		const SampleType rootMeanSquare(const Grain<SampleType>& grain)
 		{
 			auto ptr = grain.sampleData.getReadPointer(0);
 
-			return gist.rootMeanSquare(std::vector<SampleType>(ptr, ptr + grain.sampleData.getNumSamples()));
+			gist.processAudioFrame(std::vector<SampleType>(ptr, ptr + grain.sampleData.getNumSamples()));
+
+			return gist.rootMeanSquare();
 		}
 
 		const SampleType peakEnergy(const Grain<SampleType>& grain)
 		{
 			auto ptr = grain.sampleData.getReadPointer(0);
 
-			return gist.peakEnergy(std::vector<SampleType>(ptr, ptr + grain.sampleData.getNumSamples()));
+			gist.processAudioFrame(std::vector<SampleType>(ptr, ptr + grain.sampleData.getNumSamples()));
+
+			return gist.peakEnergy();
 		}
 
 	private:

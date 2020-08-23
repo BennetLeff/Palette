@@ -10,7 +10,7 @@
 namespace Palette
 {
     template <typename SampleType>
-    class GrainDisplay : public Component
+    class GrainDisplay : public juce::Component
     {
     public:
         GrainDisplay() { }
@@ -37,7 +37,7 @@ namespace Palette
         void setAxis(const Feature& xAxis, const Feature& yAxis) { xAxis = xAxis; yAxis = yAxis; }
 
         // TODO: This makes a copy - use a shared_ptr
-        void setGrains(const std::vector<Grain<SampleType>>& grains) { grains = grains; }
+        void setGrains(std::vector<Grain<SampleType>>& grains) { grains = grains; }
     private:
         std::vector<Grain<SampleType>> grains;
 

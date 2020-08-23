@@ -2,14 +2,264 @@
 
 <JUCERPROJECT id="vQ6Qc6" name="Palette" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
-              cppLanguageStandard="latest">
+              cppLanguageStandard="latest" headerPath="./dependencies">
   <MAINGROUP id="g7gZIs" name="Palette">
     <GROUP id="{C2AC6EFE-9E03-B2E2-CF4E-BFDD708A501E}" name="Source">
-      <FILE id="RMy0JZ" name="FeatureAnalysis.cpp" compile="1" resource="0"
-            file="Source/FeatureAnalysis.cpp"/>
-      <FILE id="aRyAvH" name="FeatureAnalysis.h" compile="0" resource="0"
-            file="Source/FeatureAnalysis.h"/>
+      <GROUP id="{A5E06DCC-2EF2-4D93-FEDF-C81D7E54475C}" name="Gist">
+        <GROUP id="{523D4608-802D-48E0-2149-7C074C0ED5E0}" name="build">
+          <GROUP id="{851B996E-5312-50ED-43F1-A040774A650E}" name="CMakeFiles">
+            <GROUP id="{4BB69CFF-6363-237A-BE59-FA99AFB1D245}" name="3.18.1">
+              <GROUP id="{118E2718-0AC3-EA39-62BD-22E123B7F89F}" name="CompilerIdC">
+                <GROUP id="{3D752AAE-F8A8-9779-9F4B-314112AE8668}" name="Debug">
+                  <GROUP id="{07B7F134-EA87-F010-E664-8DB152C3EDE5}" name="CompilerIdC.tlog">
+                    <FILE id="m7ewZ5" name="CL.command.1.tlog" compile="0" resource="1"
+                          file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdC/Debug/CompilerIdC.tlog/CL.command.1.tlog"/>
+                    <FILE id="lVB93J" name="CL.read.1.tlog" compile="0" resource="1" file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdC/Debug/CompilerIdC.tlog/CL.read.1.tlog"/>
+                    <FILE id="h5Rm8u" name="CL.write.1.tlog" compile="0" resource="1" file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdC/Debug/CompilerIdC.tlog/CL.write.1.tlog"/>
+                    <FILE id="cxaJeN" name="CompilerIdC.lastbuildstate" compile="0" resource="1"
+                          file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdC/Debug/CompilerIdC.tlog/CompilerIdC.lastbuildstate"/>
+                    <FILE id="S3Vala" name="CompilerIdC.write.1u.tlog" compile="0" resource="1"
+                          file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdC/Debug/CompilerIdC.tlog/CompilerIdC.write.1u.tlog"/>
+                    <FILE id="Ic2lWI" name="link.command.1.tlog" compile="0" resource="1"
+                          file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdC/Debug/CompilerIdC.tlog/link.command.1.tlog"/>
+                    <FILE id="pnAYYF" name="link.read.1.tlog" compile="0" resource="1"
+                          file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdC/Debug/CompilerIdC.tlog/link.read.1.tlog"/>
+                    <FILE id="x5G7rn" name="link.write.1.tlog" compile="0" resource="1"
+                          file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdC/Debug/CompilerIdC.tlog/link.write.1.tlog"/>
+                  </GROUP>
+                  <FILE id="mOWtO7" name="CMakeCCompilerId.obj" compile="0" resource="1"
+                        file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdC/Debug/CMakeCCompilerId.obj"/>
+                  <FILE id="sXVaB0" name="CompilerIdC.exe.recipe" compile="0" resource="1"
+                        file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdC/Debug/CompilerIdC.exe.recipe"/>
+                  <FILE id="KJ7VEW" name="vcpkg.applocal.log" compile="0" resource="1"
+                        file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdC/Debug/vcpkg.applocal.log"/>
+                </GROUP>
+                <GROUP id="{39B8B0B3-9E00-CC67-3B27-20EFB9A7331C}" name="tmp"/>
+                <FILE id="PSs6zF" name="CMakeCCompilerId.c" compile="1" resource="0"
+                      file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdC/CMakeCCompilerId.c"/>
+                <FILE id="zEjzRP" name="CompilerIdC.exe" compile="0" resource="1" file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdC/CompilerIdC.exe"/>
+                <FILE id="RWuVfN" name="CompilerIdC.vcxproj" compile="0" resource="1"
+                      file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdC/CompilerIdC.vcxproj"/>
+              </GROUP>
+              <GROUP id="{B867E662-255D-C341-5693-CCBB84C02DEA}" name="CompilerIdCXX">
+                <GROUP id="{AFABA895-79D8-D2F2-89EC-E2DD131CE4A6}" name="Debug">
+                  <GROUP id="{13258891-C3EF-A186-927C-6AEF0D6D5AF1}" name="CompilerIdCXX.tlog">
+                    <FILE id="M3QkVw" name="CL.command.1.tlog" compile="0" resource="1"
+                          file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdCXX/Debug/CompilerIdCXX.tlog/CL.command.1.tlog"/>
+                    <FILE id="ALaDqA" name="CL.read.1.tlog" compile="0" resource="1" file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdCXX/Debug/CompilerIdCXX.tlog/CL.read.1.tlog"/>
+                    <FILE id="ufadQp" name="CL.write.1.tlog" compile="0" resource="1" file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdCXX/Debug/CompilerIdCXX.tlog/CL.write.1.tlog"/>
+                    <FILE id="IrOyCb" name="CompilerIdCXX.lastbuildstate" compile="0" resource="1"
+                          file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdCXX/Debug/CompilerIdCXX.tlog/CompilerIdCXX.lastbuildstate"/>
+                    <FILE id="RRYIEp" name="CompilerIdCXX.write.1u.tlog" compile="0" resource="1"
+                          file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdCXX/Debug/CompilerIdCXX.tlog/CompilerIdCXX.write.1u.tlog"/>
+                    <FILE id="maQSUs" name="link.command.1.tlog" compile="0" resource="1"
+                          file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdCXX/Debug/CompilerIdCXX.tlog/link.command.1.tlog"/>
+                    <FILE id="shc2lG" name="link.read.1.tlog" compile="0" resource="1"
+                          file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdCXX/Debug/CompilerIdCXX.tlog/link.read.1.tlog"/>
+                    <FILE id="UtMgiF" name="link.write.1.tlog" compile="0" resource="1"
+                          file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdCXX/Debug/CompilerIdCXX.tlog/link.write.1.tlog"/>
+                  </GROUP>
+                  <FILE id="bZq6FH" name="CMakeCXXCompilerId.obj" compile="0" resource="1"
+                        file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdCXX/Debug/CMakeCXXCompilerId.obj"/>
+                  <FILE id="iNMjBc" name="CompilerIdCXX.exe.recipe" compile="0" resource="1"
+                        file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdCXX/Debug/CompilerIdCXX.exe.recipe"/>
+                  <FILE id="J15cs9" name="vcpkg.applocal.log" compile="0" resource="1"
+                        file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdCXX/Debug/vcpkg.applocal.log"/>
+                </GROUP>
+                <GROUP id="{DBAAD6C6-AE89-C7AB-DC0C-A681BD1DA749}" name="tmp"/>
+                <FILE id="Xw6avJ" name="CMakeCXXCompilerId.cpp" compile="1" resource="0"
+                      file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdCXX/CMakeCXXCompilerId.cpp"/>
+                <FILE id="LD2lSb" name="CompilerIdCXX.exe" compile="0" resource="1"
+                      file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdCXX/CompilerIdCXX.exe"/>
+                <FILE id="KA3bI5" name="CompilerIdCXX.vcxproj" compile="0" resource="1"
+                      file="dependencies/Gist/build/CMakeFiles/3.18.1/CompilerIdCXX/CompilerIdCXX.vcxproj"/>
+              </GROUP>
+              <GROUP id="{F1521484-BAF8-6534-8875-B73D6480F6F4}" name="x64">
+                <GROUP id="{A7561D18-FEF3-BD96-1FAA-4F34865690F8}" name="Debug">
+                  <GROUP id="{510D4F9E-46F2-70AA-278E-5188B2D8EFA0}" name="VCTargetsPath.tlog">
+                    <FILE id="zfSEQD" name="VCTargetsPath.lastbuildstate" compile="0" resource="1"
+                          file="dependencies/Gist/build/CMakeFiles/3.18.1/x64/Debug/VCTargetsPath.tlog/VCTargetsPath.lastbuildstate"/>
+                  </GROUP>
+                  <FILE id="e5M5Fc" name="VCTargetsPath.recipe" compile="0" resource="1"
+                        file="dependencies/Gist/build/CMakeFiles/3.18.1/x64/Debug/VCTargetsPath.recipe"/>
+                </GROUP>
+              </GROUP>
+              <FILE id="TY4Cch" name="CMakeCCompiler.cmake" compile="0" resource="1"
+                    file="dependencies/Gist/build/CMakeFiles/3.18.1/CMakeCCompiler.cmake"/>
+              <FILE id="iJHqDk" name="CMakeCXXCompiler.cmake" compile="0" resource="1"
+                    file="dependencies/Gist/build/CMakeFiles/3.18.1/CMakeCXXCompiler.cmake"/>
+              <FILE id="ZY93nF" name="CMakeDetermineCompilerABI_C.bin" compile="0"
+                    resource="1" file="dependencies/Gist/build/CMakeFiles/3.18.1/CMakeDetermineCompilerABI_C.bin"/>
+              <FILE id="L9iGkD" name="CMakeDetermineCompilerABI_CXX.bin" compile="0"
+                    resource="1" file="dependencies/Gist/build/CMakeFiles/3.18.1/CMakeDetermineCompilerABI_CXX.bin"/>
+              <FILE id="ycdu5N" name="CMakeRCCompiler.cmake" compile="0" resource="1"
+                    file="dependencies/Gist/build/CMakeFiles/3.18.1/CMakeRCCompiler.cmake"/>
+              <FILE id="pn6a0y" name="CMakeSystem.cmake" compile="0" resource="1"
+                    file="dependencies/Gist/build/CMakeFiles/3.18.1/CMakeSystem.cmake"/>
+              <FILE id="qsaXCD" name="VCTargetsPath.txt" compile="0" resource="1"
+                    file="dependencies/Gist/build/CMakeFiles/3.18.1/VCTargetsPath.txt"/>
+              <FILE id="w0a5RB" name="VCTargetsPath.vcxproj" compile="0" resource="1"
+                    file="dependencies/Gist/build/CMakeFiles/3.18.1/VCTargetsPath.vcxproj"/>
+            </GROUP>
+            <GROUP id="{BD938034-F334-F90C-16C6-E1EEB3028E85}" name="7bcd809450f85f4e9051e6228add97a9">
+              <FILE id="rCom9E" name="generate.stamp.rule" compile="0" resource="1"
+                    file="dependencies/Gist/build/CMakeFiles/7bcd809450f85f4e9051e6228add97a9/generate.stamp.rule"/>
+            </GROUP>
+            <GROUP id="{F6AC9521-8BC5-21FD-5FF4-1588EFE0ECF1}" name="CMakeTmp"/>
+            <FILE id="BtrYcs" name="cmake.check_cache" compile="0" resource="1"
+                  file="dependencies/Gist/build/CMakeFiles/cmake.check_cache"/>
+            <FILE id="JpjcpS" name="CMakeOutput.log" compile="0" resource="1" file="dependencies/Gist/build/CMakeFiles/CMakeOutput.log"/>
+            <FILE id="z3jJpP" name="generate.stamp" compile="0" resource="1" file="dependencies/Gist/build/CMakeFiles/generate.stamp"/>
+            <FILE id="gYunkU" name="generate.stamp.depend" compile="0" resource="1"
+                  file="dependencies/Gist/build/CMakeFiles/generate.stamp.depend"/>
+            <FILE id="n20HSv" name="generate.stamp.list" compile="0" resource="1"
+                  file="dependencies/Gist/build/CMakeFiles/generate.stamp.list"/>
+            <FILE id="f6C4BZ" name="TargetDirectories.txt" compile="0" resource="1"
+                  file="dependencies/Gist/build/CMakeFiles/TargetDirectories.txt"/>
+          </GROUP>
+          <GROUP id="{0A673DBD-AA49-D58D-419A-FED2E9792A6A}" name="Debug">
+            <FILE id="IzQc6w" name="Gist.dll" compile="0" resource="1" file="dependencies/Gist/build/Debug/Gist.dll"/>
+            <FILE id="H4De46" name="Gist.ilk" compile="0" resource="1" file="dependencies/Gist/build/Debug/Gist.ilk"/>
+            <FILE id="P67msf" name="Gist.pdb" compile="0" resource="1" file="dependencies/Gist/build/Debug/Gist.pdb"/>
+          </GROUP>
+          <GROUP id="{67D6D43A-2FE3-AF07-4C7C-21A32BB6D5C7}" name="Gist.dir">
+            <GROUP id="{63EE22D3-2B87-EB0D-FDFA-0E0FB5D15B53}" name="Debug">
+              <GROUP id="{C79DF88A-8513-F94E-6473-ED24C1EBF406}" name="Gist.tlog">
+                <FILE id="Ok97NC" name="CL.command.1.tlog" compile="0" resource="1"
+                      file="dependencies/Gist/build/Gist.dir/Debug/Gist.tlog/CL.command.1.tlog"/>
+                <FILE id="IMFzVg" name="CL.read.1.tlog" compile="0" resource="1" file="dependencies/Gist/build/Gist.dir/Debug/Gist.tlog/CL.read.1.tlog"/>
+                <FILE id="J348go" name="CL.write.1.tlog" compile="0" resource="1" file="dependencies/Gist/build/Gist.dir/Debug/Gist.tlog/CL.write.1.tlog"/>
+                <FILE id="pfMdi7" name="CustomBuild.command.1.tlog" compile="0" resource="1"
+                      file="dependencies/Gist/build/Gist.dir/Debug/Gist.tlog/CustomBuild.command.1.tlog"/>
+                <FILE id="Lz5zl1" name="CustomBuild.read.1.tlog" compile="0" resource="1"
+                      file="dependencies/Gist/build/Gist.dir/Debug/Gist.tlog/CustomBuild.read.1.tlog"/>
+                <FILE id="lLA9ri" name="CustomBuild.write.1.tlog" compile="0" resource="1"
+                      file="dependencies/Gist/build/Gist.dir/Debug/Gist.tlog/CustomBuild.write.1.tlog"/>
+                <FILE id="nXWHeU" name="Gist.lastbuildstate" compile="0" resource="1"
+                      file="dependencies/Gist/build/Gist.dir/Debug/Gist.tlog/Gist.lastbuildstate"/>
+                <FILE id="HyG6KA" name="Gist.write.1u.tlog" compile="0" resource="1"
+                      file="dependencies/Gist/build/Gist.dir/Debug/Gist.tlog/Gist.write.1u.tlog"/>
+                <FILE id="OINT1m" name="link.command.1.tlog" compile="0" resource="1"
+                      file="dependencies/Gist/build/Gist.dir/Debug/Gist.tlog/link.command.1.tlog"/>
+                <FILE id="GcJ2Vi" name="link.read.1.tlog" compile="0" resource="1"
+                      file="dependencies/Gist/build/Gist.dir/Debug/Gist.tlog/link.read.1.tlog"/>
+                <FILE id="pjvaPd" name="link.write.1.tlog" compile="0" resource="1"
+                      file="dependencies/Gist/build/Gist.dir/Debug/Gist.tlog/link.write.1.tlog"/>
+              </GROUP>
+              <FILE id="xtKC5b" name="CoreFrequencyDomainFeatures.obj" compile="0"
+                    resource="1" file="dependencies/Gist/build/Gist.dir/Debug/CoreFrequencyDomainFeatures.obj"/>
+              <FILE id="XcVphV" name="CoreTimeDomainFeatures.obj" compile="0" resource="1"
+                    file="dependencies/Gist/build/Gist.dir/Debug/CoreTimeDomainFeatures.obj"/>
+              <FILE id="XUvG4N" name="Gist.dll.recipe" compile="0" resource="1" file="dependencies/Gist/build/Gist.dir/Debug/Gist.dll.recipe"/>
+              <FILE id="ojCKZk" name="Gist.log" compile="0" resource="1" file="dependencies/Gist/build/Gist.dir/Debug/Gist.log"/>
+              <FILE id="sLp0zR" name="Gist.obj" compile="0" resource="1" file="dependencies/Gist/build/Gist.dir/Debug/Gist.obj"/>
+              <FILE id="QH4qzF" name="MFCC.obj" compile="0" resource="1" file="dependencies/Gist/build/Gist.dir/Debug/MFCC.obj"/>
+              <FILE id="u2Ji4b" name="OnsetDetectionFunction.obj" compile="0" resource="1"
+                    file="dependencies/Gist/build/Gist.dir/Debug/OnsetDetectionFunction.obj"/>
+              <FILE id="qm1NJW" name="vc142.pdb" compile="0" resource="1" file="dependencies/Gist/build/Gist.dir/Debug/vc142.pdb"/>
+              <FILE id="htSlnb" name="vcpkg.applocal.log" compile="0" resource="1"
+                    file="dependencies/Gist/build/Gist.dir/Debug/vcpkg.applocal.log"/>
+              <FILE id="ujtumh" name="WindowFunctions.obj" compile="0" resource="1"
+                    file="dependencies/Gist/build/Gist.dir/Debug/WindowFunctions.obj"/>
+              <FILE id="VHRAuT" name="Yin.obj" compile="0" resource="1" file="dependencies/Gist/build/Gist.dir/Debug/Yin.obj"/>
+            </GROUP>
+          </GROUP>
+          <GROUP id="{F111D3AC-26A9-B5A3-50A7-F4E70E572A1D}" name="x64">
+            <GROUP id="{0C79AA2D-EF41-22E0-AD45-071E535F1D78}" name="Debug">
+              <GROUP id="{FFF432FD-BCA6-1C42-7114-319F7B9808CE}" name="ZERO_CHECK">
+                <GROUP id="{3D43A84A-D295-4B55-CEA3-5841155474DA}" name="ZERO_CHECK.tlog">
+                  <FILE id="rRcFOM" name="CustomBuild.command.1.tlog" compile="0" resource="1"
+                        file="dependencies/Gist/build/x64/Debug/ZERO_CHECK/ZERO_CHECK.tlog/CustomBuild.command.1.tlog"/>
+                  <FILE id="JpLZvc" name="CustomBuild.read.1.tlog" compile="0" resource="1"
+                        file="dependencies/Gist/build/x64/Debug/ZERO_CHECK/ZERO_CHECK.tlog/CustomBuild.read.1.tlog"/>
+                  <FILE id="xKFeJw" name="CustomBuild.write.1.tlog" compile="0" resource="1"
+                        file="dependencies/Gist/build/x64/Debug/ZERO_CHECK/ZERO_CHECK.tlog/CustomBuild.write.1.tlog"/>
+                  <FILE id="D4W72Q" name="ZERO_CHECK.lastbuildstate" compile="0" resource="1"
+                        file="dependencies/Gist/build/x64/Debug/ZERO_CHECK/ZERO_CHECK.tlog/ZERO_CHECK.lastbuildstate"/>
+                </GROUP>
+                <FILE id="nBRzAo" name="ZERO_CHECK.log" compile="0" resource="1" file="dependencies/Gist/build/x64/Debug/ZERO_CHECK/ZERO_CHECK.log"/>
+                <FILE id="RSBajO" name="ZERO_CHECK.recipe" compile="0" resource="1"
+                      file="dependencies/Gist/build/x64/Debug/ZERO_CHECK/ZERO_CHECK.recipe"/>
+              </GROUP>
+            </GROUP>
+          </GROUP>
+          <FILE id="Dwsj8F" name="ALL_BUILD.vcxproj" compile="0" resource="1"
+                file="dependencies/Gist/build/ALL_BUILD.vcxproj"/>
+          <FILE id="E73nt8" name="ALL_BUILD.vcxproj.filters" compile="0" resource="1"
+                file="dependencies/Gist/build/ALL_BUILD.vcxproj.filters"/>
+          <FILE id="VyBP35" name="cmake_install.cmake" compile="0" resource="1"
+                file="dependencies/Gist/build/cmake_install.cmake"/>
+          <FILE id="Krk2Lm" name="CMakeCache.txt" compile="0" resource="1" file="dependencies/Gist/build/CMakeCache.txt"/>
+          <FILE id="ZTyfTL" name="Gist.sln" compile="0" resource="1" file="dependencies/Gist/build/Gist.sln"/>
+          <FILE id="ujXBbR" name="Gist.vcxproj" compile="0" resource="1" file="dependencies/Gist/build/Gist.vcxproj"/>
+          <FILE id="MFvWxA" name="Gist.vcxproj.filters" compile="0" resource="1"
+                file="dependencies/Gist/build/Gist.vcxproj.filters"/>
+          <FILE id="dqHGsu" name="ZERO_CHECK.vcxproj" compile="0" resource="1"
+                file="dependencies/Gist/build/ZERO_CHECK.vcxproj"/>
+          <FILE id="wGWiei" name="ZERO_CHECK.vcxproj.filters" compile="0" resource="1"
+                file="dependencies/Gist/build/ZERO_CHECK.vcxproj.filters"/>
+        </GROUP>
+        <GROUP id="{E8D3D977-6182-6DC5-F151-B7E60528D722}" name="images">
+          <FILE id="rK3DdQ" name="header.png" compile="0" resource="1" file="dependencies/Gist/images/header.png"/>
+        </GROUP>
+        <GROUP id="{E47CC7CA-E154-F367-11D9-8DA37E6C2AD7}" name="libs">
+          <GROUP id="{1E36A236-061A-8024-19BC-8BBEAD390544}" name="kiss_fft130">
+            <FILE id="e5tNkY" name="_kiss_fft_guts.h" compile="0" resource="0"
+                  file="dependencies/Gist/libs/kiss_fft130/_kiss_fft_guts.h"/>
+            <FILE id="VzTHR5" name="COPYING" compile="0" resource="1" file="dependencies/Gist/libs/kiss_fft130/COPYING"/>
+            <FILE id="UYexoO" name="kiss_fft.c" compile="1" resource="0" file="dependencies/Gist/libs/kiss_fft130/kiss_fft.c"/>
+            <FILE id="Sql3HW" name="kiss_fft.h" compile="0" resource="0" file="dependencies/Gist/libs/kiss_fft130/kiss_fft.h"/>
+            <FILE id="MCAX0o" name="kissfft.hh" compile="0" resource="0" file="dependencies/Gist/libs/kiss_fft130/kissfft.hh"/>
+            <FILE id="s1mIm8" name="README" compile="0" resource="1" file="dependencies/Gist/libs/kiss_fft130/README"/>
+          </GROUP>
+        </GROUP>
+        <GROUP id="{B8846198-127B-D5A7-E4E6-77DADA1676DF}" name="src">
+          <GROUP id="{A2030FF5-5ECF-B256-2D6B-7800D6412392}" name="core">
+            <FILE id="ODwhnX" name="CoreFrequencyDomainFeatures.cpp" compile="1"
+                  resource="0" file="dependencies/Gist/src/core/CoreFrequencyDomainFeatures.cpp"/>
+            <FILE id="vycEvK" name="CoreFrequencyDomainFeatures.h" compile="0"
+                  resource="0" file="dependencies/Gist/src/core/CoreFrequencyDomainFeatures.h"/>
+            <FILE id="hS1pYW" name="CoreTimeDomainFeatures.cpp" compile="1" resource="0"
+                  file="dependencies/Gist/src/core/CoreTimeDomainFeatures.cpp"/>
+            <FILE id="IHFWxI" name="CoreTimeDomainFeatures.h" compile="0" resource="0"
+                  file="dependencies/Gist/src/core/CoreTimeDomainFeatures.h"/>
+          </GROUP>
+          <GROUP id="{C2D93B11-9E18-C3BE-D3A5-24A16C354D12}" name="fft">
+            <FILE id="Dn2RC3" name="AccelerateFFT.cpp" compile="0" resource="0"
+                  file="dependencies/Gist/src/fft/AccelerateFFT.cpp"/>
+            <FILE id="KOK58B" name="AccelerateFFT.h" compile="0" resource="0" file="dependencies/Gist/src/fft/AccelerateFFT.h"/>
+            <FILE id="Jk0GFU" name="WindowFunctions.cpp" compile="1" resource="0"
+                  file="dependencies/Gist/src/fft/WindowFunctions.cpp"/>
+            <FILE id="u3Hb0p" name="WindowFunctions.h" compile="0" resource="0"
+                  file="dependencies/Gist/src/fft/WindowFunctions.h"/>
+          </GROUP>
+          <GROUP id="{8D669EA5-5171-4B97-486A-D8EB4CA8A763}" name="mfcc">
+            <FILE id="OUZfno" name="MFCC.cpp" compile="1" resource="0" file="dependencies/Gist/src/mfcc/MFCC.cpp"/>
+            <FILE id="j7MVH9" name="MFCC.h" compile="0" resource="0" file="dependencies/Gist/src/mfcc/MFCC.h"/>
+          </GROUP>
+          <GROUP id="{EC315859-28F2-6A2F-976D-491699DCD590}" name="onset-detection-functions">
+            <FILE id="XxXo3p" name="OnsetDetectionFunction.cpp" compile="1" resource="0"
+                  file="dependencies/Gist/src/onset-detection-functions/OnsetDetectionFunction.cpp"/>
+            <FILE id="UjzTLM" name="OnsetDetectionFunction.h" compile="0" resource="0"
+                  file="dependencies/Gist/src/onset-detection-functions/OnsetDetectionFunction.h"/>
+          </GROUP>
+          <GROUP id="{0369AF6E-9C41-67AE-2D34-A4972DDAC289}" name="pitch">
+            <FILE id="yy4r9M" name="Yin.cpp" compile="1" resource="0" file="dependencies/Gist/src/pitch/Yin.cpp"/>
+            <FILE id="JcBchV" name="Yin.h" compile="0" resource="0" file="dependencies/Gist/src/pitch/Yin.h"/>
+          </GROUP>
+          <FILE id="KUALrO" name="Gist.h" compile="0" resource="0" file="dependencies/Gist/src/Gist.h"/>
+        </GROUP>
+        <FILE id="ca8lUO" name="CMakeLists.txt" compile="0" resource="1" file="dependencies/Gist/CMakeLists.txt"/>
+        <FILE id="qzC9kq" name="LICENSE.txt" compile="0" resource="1" file="dependencies/Gist/LICENSE.txt"/>
+        <FILE id="Sz3q4x" name="logo.png" compile="0" resource="1" file="dependencies/Gist/logo.png"/>
+        <FILE id="r6uV6A" name="README.md" compile="0" resource="1" file="dependencies/Gist/README.md"/>
+      </GROUP>
       <FILE id="Q4q2je" name="doctest.h" compile="0" resource="0" file="Source/doctest.h"/>
+      <FILE id="uHM7J8" name="GrainClassifier.h" compile="0" resource="0"
+            file="Source/GrainClassifier.h"/>
+      <FILE id="b2LzZz" name="GrainDisplay.cpp" compile="1" resource="0"
+            file="Source/GrainDisplay.cpp"/>
+      <FILE id="L9B8pH" name="GrainDisplay.h" compile="0" resource="0" file="Source/GrainDisplay.h"/>
       <FILE id="jRWTih" name="ConcatenativeSynthesizer.cpp" compile="1" resource="0"
             file="Source/ConcatenativeSynthesizer.cpp"/>
       <FILE id="h170wb" name="ConcatenativeSynthesizer.h" compile="0" resource="0"
@@ -23,10 +273,11 @@
             file="Source/PluginEditor.cpp"/>
       <FILE id="Jpz1Ry" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
+    <FILE id="rtk3di" name="Gist.cpp" compile="1" resource="0" file="dependencies/Gist/src/Gist.cpp"/>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>
-    <VS2019 targetFolder="Builds/VisualStudio2019">
+    <VS2019 targetFolder="Builds/VisualStudio2019" externalLibraries="Gist">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="Palette"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="Palette"/>
