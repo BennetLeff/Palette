@@ -38,8 +38,21 @@ PaletteAudioProcessorEditor::PaletteAudioProcessorEditor (PaletteAudioProcessor&
 				true);
 		}
 
+		// print out data
+		/*float* ptr = fileBuffer.getWritePointer(0);
+		int count = fileBuffer.getNumSamples();
+		while (count--)
+		{
+			if (fileBuffer.getNumSamples() - count == 0) { DBG("---------------- Grain 1 ----------------"); }
+			else if (fileBuffer.getNumSamples() - count == 4410) { DBG("---------------- Grain 2 ----------------"); }
+			DBG(*ptr);
+			ptr++;
+		}*/
+
+		auto grains_ = Palette::createGrains(fileBuffer, grainLength, sampleRate);
+
 		auto grainsAndSamples = std::make_tuple(
-			Palette::createGrains(fileBuffer, grainLength, sampleRate),
+			grains_,
 			reader->lengthInSamples);
 
 		delete reader;
@@ -63,7 +76,7 @@ PaletteAudioProcessorEditor::PaletteAudioProcessorEditor (PaletteAudioProcessor&
 		auto classifier = Palette::GrainClassifier<float>(4410, sampleRate);
 
 		grain.extractedFeatures[Palette::Feature::RMS] = classifier.rootMeanSquare(grain);
-		grain.extractedFeatures[Palette::Feature::SpectralCentroid] = classifier.spectralCentroid(grain);
+		grain.extractedFeatures[Palette::Feature::SpectralCentroid] = classifier.spectralCentroid(grain) / 22000.f;
 	}
 
 	grainDisplay.setGrains(snareGrains100);
