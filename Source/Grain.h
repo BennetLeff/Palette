@@ -13,8 +13,18 @@
 #include "doctest.h"
 #include "JuceHeader.h"
 
+#include <unordered_map>
+
 namespace Palette 
 {
+	enum class Feature
+	{
+		SpectralCentroid,
+		RMS,
+		PeakEnergy
+	};
+
+
 	/*
 	 * Grains are the fundamental building block of concatenative synthesis.
 	 * Each grain is some buffer of audio samples.
@@ -23,10 +33,14 @@ namespace Palette
 	struct Grain
 	{
 		Grain(const juce::AudioBuffer<SampleType>& data) : sampleData(data) { }
-		/* The collection of samples which will be played back. This is assumed
+		
+		/* 
+		 * The collection of samples which will be played back. This is assumed
 		 * to be mono data. In the createGrains function, audio is summed to mono.
 		 */
 		juce::AudioBuffer<SampleType> sampleData;
+
+		std::unordered_map < Feature, double > extractedFeatures;
 	};
 
 	/*
@@ -70,10 +84,14 @@ namespace Palette
 		 * seems to be the best default. It's conceivable we may want to later adjust the
 		 * API to create a grain padded with zeros to fit the requested grain size.
 		 */
+		const auto num = audioData.getNumSamples();
+
 		if (audioData.getNumSamples() < samplesPerGrain)
 		{
 			// Create buffer the size of audioData.getNumSamples()
 			auto buffer = juce::AudioBuffer<SampleType>(audioData.getNumChannels(), audioData.getNumSamples());
+
+			buffer.clear();
 
 			for (auto ch = 0; ch < audioData.getNumChannels(); ch++)
 				buffer.copyFrom(ch, 0, audioData, ch, 0, audioData.getNumSamples());
@@ -93,6 +111,9 @@ namespace Palette
 		{
 			// Create the buffer empty, with 1 channel, and samplesPerGrain space for samples.
 			auto buffer = juce::AudioBuffer<SampleType>(1, samplesPerGrain);
+
+			// We must clear the buffer as it can point to unexpectedly non-zero data on instantiation.
+			buffer.clear();
 
 			// Add the data from the audioData AudioBuffer into a new buffer to be stored in a Grain.
 			// Add into channel 0, starting at sample 0, from audioData, from channel ch, starting at
@@ -120,6 +141,9 @@ namespace Palette
 			jassert(remainingSamples <= samplesPerGrain);
 
 			auto buffer = juce::AudioBuffer<SampleType>(1, samplesPerGrain);
+
+			buffer.clear();
+
 			for (auto ch = 0; ch < audioData.getNumChannels(); ch++)
 				buffer.addFrom(0, 0, audioData, ch, partitionedSamples, remainingSamples);
 

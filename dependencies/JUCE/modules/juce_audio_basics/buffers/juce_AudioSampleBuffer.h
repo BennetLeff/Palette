@@ -891,8 +891,7 @@ public:
         jassert (isPositiveAndBelow (destChannel, numChannels));
         jassert (destStartSample >= 0 && destStartSample + numSamples <= size);
         jassert (isPositiveAndBelow (sourceChannel, source.numChannels));
-        jassert (sourceStartSample >= 0 && numSamples >= 0 
-            && sourceStartSample + numSamples <= source.size);
+        jassert (sourceStartSample >= 0 && numSamples >= 0 && sourceStartSample + numSamples <= source.size);
 
         if (numSamples > 0)
         {

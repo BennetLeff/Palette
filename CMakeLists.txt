@@ -62,12 +62,14 @@ jucer_project_files("Palette/Source"
   x         .         .         "Source/ConcatenativeSynthesizer.cpp"
   .         .         .         "Source/ConcatenativeSynthesizer.h"
   .         .         .         "Source/Grain.h"
-  x         .         .         "Source/GrainClassifier.cpp"
   .         .         .         "Source/GrainClassifier.h"
+  x         .         .         "Source/GrainDisplay.cpp"
+  .         .         .         "Source/GrainDisplay.h"
   x         .         .         "Source/PluginProcessor.cpp"
   .         .         .         "Source/PluginProcessor.h"
   x         .         .         "Source/PluginEditor.cpp"
   .         .         .         "Source/PluginEditor.h"
+  x         .         .         "dependencies/Gist/src/Gist.cpp"
 )
 
 jucer_project_module(

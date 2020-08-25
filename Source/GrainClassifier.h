@@ -7,6 +7,15 @@
 
 namespace Palette 
 {
+	// We need to forward declare Grain to resolve a few errors.
+	template <typename>
+	class Grain;
+
+	/* We'll need to maintain an enumeration of methods for feature extraction.
+	 * This is used in the Grain class so that each Grain can own data about
+	 * its features which is then used in the GrainDisplay when plotting grains.
+	 */
+
 	template<typename SampleType>
 	class GrainClassifier
 	{
@@ -19,28 +28,34 @@ namespace Palette
 		 */
 		GrainClassifier(int frameSize, int sampleRate) : gist(frameSize, sampleRate) { }
 
-		const auto spectralCentroid(const Grain<SampleType>& grain) 
+		const SampleType spectralCentroid(const Grain<SampleType>& grain) 
         { 
 			auto ptr = grain.sampleData.getReadPointer(0);
             
 			// We must construct a vector from the internal pointer inside the 
 			// juce::AudioBuffer inside the Grain because that's the only type
 			// Gist accepts.
-            return gist.spectralCentroid(std::vector<SampleType>(ptr, ptr + grain.sampleData.getNumSamples()));
+			gist.processAudioFrame(std::vector<SampleType>(ptr, ptr + grain.sampleData.getNumSamples()));
+
+            return gist.spectralCentroid();
         }
 
-		const auto rootMeanSquare(const Grain<SampleType>& grain)
+		const SampleType rootMeanSquare(const Grain<SampleType>& grain)
 		{
 			auto ptr = grain.sampleData.getReadPointer(0);
 
-			return gist.rootMeanSquare(std::vector<SampleType>(ptr, ptr + grain.sampleData.getNumSamples()));
+			gist.processAudioFrame(std::vector<SampleType>(ptr, ptr + grain.sampleData.getNumSamples()));
+
+			return gist.rootMeanSquare();
 		}
 
-		const auto peakEnergy(const Grain<SampleType>& grain)
+		const SampleType peakEnergy(const Grain<SampleType>& grain)
 		{
 			auto ptr = grain.sampleData.getReadPointer(0);
 
-			return gist.peakEnergy(std::vector<SampleType>(ptr, ptr + grain.sampleData.getNumSamples()));
+			gist.processAudioFrame(std::vector<SampleType>(ptr, ptr + grain.sampleData.getNumSamples()));
+
+			return gist.peakEnergy();
 		}
 
 	private:
